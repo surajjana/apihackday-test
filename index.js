@@ -11,6 +11,14 @@ app.use(bodyParser());
 
 app.set('port', (process.env.PORT || 5000));
 
+
+app.get('/', function (request, response) {
+
+  response.send("Hello, testing... :)");
+
+});
+
+
 app.post('/login', function (request, response) {
 
   var usn = request.body['usn'];
@@ -71,21 +79,6 @@ app.get('/read_mongoose',function (request, response){
 		response.send(names);
 	});
 
-});
-
-app.get('/test_data', function (request, response) {
-
-  var usn = '1BY12CS077';
-
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    client.query("SELECT name,branch,semester,section,clg FROM student WHERE usn='"+usn+"'", function(err, result) {
-      done();
-      if (err)
-       { console.error(err); response.send("Error " + err); }
-      else
-       { response.send(JSON.stringify(result)); }
-    });
-  });
 });
 
 app.listen(app.get('port'), function() {
