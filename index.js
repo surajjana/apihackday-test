@@ -70,7 +70,8 @@ app.get('/tweets', function (request, response){
 });
 
 app.get('/sentiment/:msg', function (req, res){
-	var msg = req.params.msg;
+	//var msg = req.params.msg;
+	var msg = 'hi how are you?';
 	var result = '';
 	request("https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text="+msg+"&apikey=4c517421-8409-4a33-8b20-cf547c587cf3", function(error, response, body) {
 	  var res = body;
