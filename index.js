@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose')
 var Twitter = require('twitter');
 var request = require('request');
+var fs = require('fs');
 var app = express();
 
 var tweets_res = '';
@@ -60,6 +61,7 @@ app.get('/tweets', function (request, response){
 	  	tweets_res = tweets;
 	  	//var res = JSON.parse(tweets_res);
 	  	console.log("Hello : " + tweets_res.created_at);
+	  	fs.writeFileSync('data.json', tweets_res);
 	  	//console.log('%s', res);
 	    //response.send(JSON.stringify(tweets_res, null, 4));
 	  }
