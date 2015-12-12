@@ -78,8 +78,8 @@ app.get('/sentiment', function (req, res){
 	var tmp;
 	var msg = 'i m in good mood';
 	request("https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text="+msg+"&apikey=4c517421-8409-4a33-8b20-cf547c587cf3", function(error, response, body) {
-	  var res = body;
-	  var a = JSON.parse(res);
+	  var resp = body;
+	  var a = JSON.parse(resp);
 	  console.log("inside the request callback: " + a.aggregate.score);
 	  tmp = a.aggregate.score;
 	  res.send(tmp);
