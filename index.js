@@ -71,8 +71,8 @@ app.get('/tweets', function (request, response){
 });
 
 app.get('/sentiment', function (request, response){
-	this.request("https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=i+love+my+life&apikey=4c517421-8409-4a33-8b20-cf547c587cf3", function(error, response, body) {
-	  console.log(body);
+	request("https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=i+love+my+life&apikey=4c517421-8409-4a33-8b20-cf547c587cf3", function(error, response, body) {
+	  console.log("Test : "+body+"Error : "+error);
 	});
 });
 
