@@ -58,18 +58,13 @@ app.get('/tweets', function (request, response){
 	var params = {count: '5',screen_name: '_surajjana'};
 	client.get('statuses/user_timeline', params, function(error, tweets, response){
 	  if (!error) {
-	  	tweets_res = tweets;
-	  	//var res = JSON.parse(tweets_res);
-	  	
+	  	tweets_res = tweets;	  	
 	  	for(var i=0;i<5;i++){
-	  		//console.log("Message : "+tweets[i].text+"\n");
 	  		tweet_msg += tweets[i].text + ' ';
 	  	}
 	  	console.log(tweet_msg);
-	    //response.send(JSON.stringify(tweets, null, 4));
 	  }
 	});
-	//response.send(JSON.stringify(tweets_res, null, 4));
 	response.send("1");
 });
 
@@ -83,10 +78,11 @@ app.get('/sentiment', function (req, res){
 	  console.log("inside the request callback: " + a.aggregate.score);
 	  tmp = a.aggregate.score;
 	  res.send(200, tmp);
-	  //response.send(a.aggregate.score);
 	});
-	//console.log("Outside the request callback: " + tmp);
-	//res.send(tmp);
+});
+
+app.get('/testing/:name', function (req, res){
+	res.send(req.params.name);
 });
 
 app.get('/read_mongoose',function (request, response){
