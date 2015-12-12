@@ -41,6 +41,8 @@ app.get('/mongoose', function (request, response) {
 });
 
 app.get('/tweets', function (request, response){
+
+	var twet;
  
 	var client = new Twitter({
 	  consumer_key: 'jxnqynJxmIV6tdPfcYg4hlII4',
@@ -52,9 +54,10 @@ app.get('/tweets', function (request, response){
 	var params = {screen_name: '_surajjana'};
 	client.get('statuses/user_timeline', params, function(error, tweets, response){
 	  if (!error) {
-	    response.send(tweets);
+	    twet = tweets;
 	  }
 	});
+	response.send(twet);
 });
 
 app.get('/read_mongoose',function (request, response){
