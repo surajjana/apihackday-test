@@ -58,9 +58,9 @@ app.get('/tweets', function (request, response){
 	client.get('statuses/user_timeline', params, function(error, tweets, response){
 	  if (!error) {
 	  	tweets_res = tweets;
-	  	var res = JSON.parse(tweets_res);
-	  	//console.log("Hello : " + tweets_res.created_at);
-	  	console.log('%s', res);
+	  	//var res = JSON.parse(tweets_res);
+	  	console.log("Hello : " + tweets_res.created_at);
+	  	//console.log('%s', res);
 	    //response.send(JSON.stringify(tweets_res, null, 4));
 	  }
 	});
