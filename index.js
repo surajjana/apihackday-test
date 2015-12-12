@@ -72,9 +72,10 @@ app.get('/tweets', function (request, response){
 
 app.get('/sentiment', function (req, res){
 	request("https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=i+love+my+life&apikey=4c517421-8409-4a33-8b20-cf547c587cf3", function(error, response, body) {
-	  console.log("Test : "+body+"Error : "+error);
+	  console.log("Test : "+body);
+	  response.send(body);
 	});
-	res.send("Sentiments..");
+	//res.send("Sentiments..");
 });
 
 app.get('/read_mongoose',function (request, response){
