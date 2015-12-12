@@ -60,7 +60,7 @@ app.get('/tweets', function (request, response){
 	  if (!error) {
 	  	tweets_res = tweets;
 	  	//var res = JSON.parse(tweets_res);
-	  	console.log("Message : "+tweets[0].retweeted_status.text);
+	  	console.log("Message 2 : "+tweets[1].text);
 	  	//console.log('%s', res);
 	    //response.send(JSON.stringify(tweets, null, 4));
 	  }
