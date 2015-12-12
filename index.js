@@ -52,7 +52,7 @@ app.get('/tweets', function (request, response){
 	var params = {screen_name: '_surajjana'};
 	client.get('statuses/user_timeline', params, function(error, tweets, response){
 	  if (!error) {
-	    console.log(tweets);
+	    response.send(tweets);
 	  }
 	});
 });
