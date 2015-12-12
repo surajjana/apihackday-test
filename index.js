@@ -55,7 +55,7 @@ app.get('/tweets', function (request, response){
 	  access_token_secret: 'y35T8LKMu2JDF6n5eY3VpOZjlMrFkkxWwkum1yGpjtUx8'
 	});
  
-	var params = {count: '1',screen_name: '_surajjana'};
+	var params = {count: '2',screen_name: '_surajjana'};
 	client.get('statuses/user_timeline', params, function(error, tweets, response){
 	  if (!error) {
 	  	tweets_res = tweets;
