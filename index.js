@@ -46,7 +46,7 @@ app.get('/mongoose', function (request, response) {
 
 app.get('/tweets', function (request, response){
 
-	var twet;
+	var tweet_msg = '';
  
 	var client = new Twitter({
 	  consumer_key: 'jxnqynJxmIV6tdPfcYg4hlII4',
@@ -62,9 +62,10 @@ app.get('/tweets', function (request, response){
 	  	//var res = JSON.parse(tweets_res);
 	  	
 	  	for(var i=0;i<5;i++){
-	  		console.log("Message : "+tweets[i].text+"\n");
+	  		//console.log("Message : "+tweets[i].text+"\n");
+	  		tweet_msg += tweets[i].text + ' ';
 	  	}
-	  	//console.log('%s', res);
+	  	console.log(tweet_msg);
 	    //response.send(JSON.stringify(tweets, null, 4));
 	  }
 	});
