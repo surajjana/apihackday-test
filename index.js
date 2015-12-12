@@ -1,9 +1,10 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose')
+var Twitter = require('twitter');
 var app = express();
 
-mongoose.connect('mongodb://heroku_t227smxg:ublho6uviema236j7b5p7sqmhs@ds035643.mongolab.com:35643/heroku_t227smxg');
+mongoose.connect('mongodb://heroku_d89gnspb:chno8n355pj8un9jjmlpglu231@ds027385.mongolab.com:27385/heroku_d89gnspb');
 
 
 app.use(bodyParser());
@@ -16,32 +17,6 @@ app.get('/', function (request, response) {
   response.send("Hello, testing... :)");
 
 });
-
-
-app.post('/login', function (request, response) {
-
-  var usn = request.body['usn'];
-  var pwd = request.body['pwd'];
-
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    client.query("SELECT pwd FROM student WHERE usn='"+usn+"'", function(err, result) {
-      done();
-      if (err)
-       { console.error(err); response.send("Error " + err); }
-      else
-       { 
-       		if(result.rows[0].pwd == pwd)
-       			response.send("1");
-       		else
-       			response.send("0");
-       		//response.send(JSON.stringify(result)); 
-       		//var jsonObj = JSON.parse(result);
-       		//console.log(jsonObj.key);
-       }
-    });
-  });
-});
-
 
 app.get('/mongoose', function (request, response) {
 	
@@ -63,6 +38,23 @@ app.get('/mongoose', function (request, response) {
 
 	response.send("Data saved!!");
 
+});
+
+app.get('/tweets', function (request, response){
+ 
+	var client = new Twitter({
+	  consumer_key: 'jxnqynJxmIV6tdPfcYg4hlII4',
+	  consumer_secret: 'I7WsmZoSjfJAoyKR0EZuhen26hCI36AiV9rkyc2xmgrfIx0Vlb',
+	  access_token_key: '97393662-TDgbHRNjkCkXZnRoGeyCz32kgjN6UwyetMQ258h5E',
+	  access_token_secret: 'y35T8LKMu2JDF6n5eY3VpOZjlMrFkkxWwkum1yGpjtUx8'
+	});
+ 
+	var params = {screen_name: '_surajjana'};
+	client.get('statuses/user_timeline', params, function(error, tweets, response){
+	  if (!error) {
+	    console.log(tweets);
+	  }
+	});
 });
 
 app.get('/read_mongoose',function (request, response){
