@@ -82,10 +82,11 @@ app.get('/sentiment', function (req, res){
 	  var a = JSON.parse(res);
 	  console.log("inside the request callback: " + a.aggregate.score);
 	  tmp = a.aggregate.score;
+	  res.send(tmp);
 	  //response.send(a.aggregate.score);
 	});
-	console.log("Outside the request callback: " + tmp);
-	res.send(tmp);
+	//console.log("Outside the request callback: " + tmp);
+	//res.send(tmp);
 });
 
 app.get('/read_mongoose',function (request, response){
