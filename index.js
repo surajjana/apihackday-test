@@ -54,10 +54,10 @@ app.get('/tweets', function (request, response){
 	var params = {screen_name: '_surajjana'};
 	client.get('statuses/user_timeline', params, function(error, tweets, response){
 	  if (!error) {
-	    twet = tweets;
+	    console.log(tweets);
 	  }
 	});
-	response.send(twet);
+	response.send("Tweets in your console");
 });
 
 app.get('/read_mongoose',function (request, response){
