@@ -4,6 +4,8 @@ var mongoose = require('mongoose')
 var Twitter = require('twitter');
 var app = express();
 
+var tweets_res = '';
+
 mongoose.connect('mongodb://heroku_d89gnspb:chno8n355pj8un9jjmlpglu231@ds027385.mongolab.com:27385/heroku_d89gnspb');
 
 
@@ -51,10 +53,11 @@ app.get('/tweets', function (request, response){
 	  access_token_secret: 'y35T8LKMu2JDF6n5eY3VpOZjlMrFkkxWwkum1yGpjtUx8'
 	});
  
-	var params = {count: '1',screen_name: 'nshntarora'};
+	var params = {count: '1',screen_name: '_surajjana'};
 	client.get('statuses/user_timeline', params, function(error, tweets, response){
 	  if (!error) {
-	    console.log(tweets);
+	  	tweets_res = tweets;
+	    console.log(tweets_res);
 	  }
 	});
 	response.send("Tweets in your console");
