@@ -68,10 +68,10 @@ app.get('/tweets', function (request, response){
 	response.send("1");
 });
 
-app.get('/sentiment', function (req, res){
+app.get('/sentiment/:msg', function (req, res){
 	//var msg = req.body['msg'];
 	var tmp;
-	var msg = 'i m in good mood';
+	var msg = req.params.msg;
 	request("https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text="+msg+"&apikey=4c517421-8409-4a33-8b20-cf547c587cf3", function(error, response, body) {
 	  var resp = body;
 	  var a = JSON.parse(resp);
