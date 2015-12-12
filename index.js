@@ -44,7 +44,7 @@ app.get('/mongoose', function (request, response) {
 
 });
 
-app.get('/tweets', function (request, response){
+app.get('/tweets/:handle', function (req, res){
 
 	var tweet_msg = '';
  
@@ -55,7 +55,7 @@ app.get('/tweets', function (request, response){
 	  access_token_secret: 'y35T8LKMu2JDF6n5eY3VpOZjlMrFkkxWwkum1yGpjtUx8'
 	});
  
-	var params = {count: '5',screen_name: '_surajjana'};
+	var params = {count: '5',screen_name: req.params.handle};
 	client.get('statuses/user_timeline', params, function(error, tweets, response){
 	  if (!error) {
 	  	tweets_res = tweets;	  	
@@ -63,9 +63,10 @@ app.get('/tweets', function (request, response){
 	  		tweet_msg += tweets[i].text + ' ';
 	  	}
 	  	console.log(tweet_msg);
+	  	res.send(200, tweet_msg);
 	  }
 	});
-	response.send("1");
+	//response.send("1");
 });
 
 app.get('/sentiment/:msg', function (req, res){
