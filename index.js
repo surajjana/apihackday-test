@@ -56,13 +56,13 @@ app.get('/tweets', function (request, response){
 	});
  
 	var params = {count: '1',screen_name: '_surajjana'};
-	client.get('statuses/user_timeline', params, function(error, tweets, res){
+	client.get('statuses/user_timeline', params, function(error, tweets, response){
 	  if (!error) {
 	  	tweets_res = tweets;
-	  	//var res = JSON.parse(tweets_res);
-	  	console.log("Hello : " + tweets_res.created_at);
+	  	var res = JSON.parse(tweets_res);
+	  	console.log("Hello : " + res.created_at);
 	  	//console.log('%s', res);
-	    res.send(JSON.stringify(tweets, null, 4));
+	    //response.send(JSON.stringify(tweets, null, 4));
 	  }
 	});
 	//response.send(JSON.stringify(tweets_res, null, 4));
