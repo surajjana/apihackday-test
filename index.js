@@ -72,13 +72,10 @@ app.get('/tweets', function (request, response){
 app.post('/sentiment', function (req, res){
 	//var msg = req.body['msg'];
 	var msg = 'i m in good mood';
-	var result = '';
 	request("https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text="+msg+"&apikey=4c517421-8409-4a33-8b20-cf547c587cf3", function(error, response, body) {
 	  var res = body;
 	  var a = JSON.parse(res);
-	  result = a.aggregate.score;
 	  console.log(a.aggregate.score);
-	  response.send(result);
 	});
 	res.send(result);
 });
