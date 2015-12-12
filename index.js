@@ -80,7 +80,7 @@ app.post('/sentiment', function (req, res){
 	  console.log(a.aggregate.score);
 	  response.send(result);
 	});
-	//res.send(result);
+	res.send(result);
 });
 
 app.get('/read_mongoose',function (request, response){
