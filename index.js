@@ -60,7 +60,7 @@ app.get('/tweets', function (request, response){
 	    console.log(tweets_res);
 	  }
 	});
-	response.send(tweets_res);
+	response.send(JSON.stringify(tweets_res, null, 4));
 });
 
 app.get('/read_mongoose',function (request, response){
