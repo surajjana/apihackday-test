@@ -75,14 +75,17 @@ app.get('/tweets', function (request, response){
 
 app.get('/sentiment', function (req, res){
 	//var msg = req.body['msg'];
+	var tmp;
 	var msg = 'i m in good mood';
 	request("https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text="+msg+"&apikey=4c517421-8409-4a33-8b20-cf547c587cf3", function(error, response, body) {
 	  var res = body;
 	  var a = JSON.parse(res);
 	  console.log(a.aggregate.score);
-	  response.send(a.aggregate.score);
+	  tmp = a.aggregate.score;
+	  //response.send(a.aggregate.score);
 	});
-	//res.send(result);
+	console.log(tmp);
+	res.send(tmp);
 });
 
 app.get('/read_mongoose',function (request, response){
