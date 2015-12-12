@@ -62,7 +62,7 @@ app.get('/tweets', function (request, response){
 	  }
 	});
 	//response.send(JSON.stringify(tweets_res, null, 4));
-	//response.send("Tweets");
+	response.send("Tweets..");
 });
 
 app.get('/read_mongoose',function (request, response){
