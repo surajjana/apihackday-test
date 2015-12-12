@@ -74,7 +74,7 @@ app.get('/sentiment', function (req, res){
 	request("https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=i+love+my+life&apikey=4c517421-8409-4a33-8b20-cf547c587cf3", function(error, response, body) {
 	  var res = body;
 	  var a = JSON.parse(res);
-	  console.log('%s', a);
+	  console.log(a.aggregate.score);
 	});
 	res.send("Sentiments..");
 });
