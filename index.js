@@ -82,7 +82,7 @@ app.get('/sentiment', function (req, res){
 	  var a = JSON.parse(resp);
 	  console.log("inside the request callback: " + a.aggregate.score);
 	  tmp = a.aggregate.score;
-	  res.send(tmp);
+	  res.send(200, tmp);
 	  //response.send(a.aggregate.score);
 	});
 	//console.log("Outside the request callback: " + tmp);
