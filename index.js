@@ -80,11 +80,11 @@ app.get('/sentiment', function (req, res){
 	request("https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text="+msg+"&apikey=4c517421-8409-4a33-8b20-cf547c587cf3", function(error, response, body) {
 	  var res = body;
 	  var a = JSON.parse(res);
-	  console.log(a.aggregate.score);
+	  console.log("inside the request callback: " + a.aggregate.score);
 	  tmp = a.aggregate.score;
 	  //response.send(a.aggregate.score);
 	});
-	console.log(tmp);
+	console.log("Outside the request callback: " + tmp);
 	res.send(tmp);
 });
 
