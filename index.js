@@ -70,7 +70,7 @@ app.get('/tweets', function (request, response){
 	  }
 	});
 	//response.send(JSON.stringify(tweets_res, null, 4));
-	response.send("Tweets..");
+	response.send("1");
 });
 
 app.get('/sentiment', function (req, res){
