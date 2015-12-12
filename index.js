@@ -78,9 +78,9 @@ app.get('/sentiment/:msg', function (req, res){
 	  console.log("inside the request callback: " + a.aggregate.score);
 	  tmp = a.aggregate.score;
 	  if(tmp>0)
-	  	res.send(200, "1");
+	  	res.send(200, "0");
 	  else
-	  	res.send(200,"0");
+	  	res.send(200,"1");
 	});
 });
 
