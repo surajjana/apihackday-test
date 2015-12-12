@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose')
 var Twitter = require('twitter');
+var request = require('request');
 var app = express();
 
 var tweets_res = '';
@@ -65,6 +66,12 @@ app.get('/tweets', function (request, response){
 	});
 	//response.send(JSON.stringify(tweets_res, null, 4));
 	response.send("Tweets..");
+});
+
+app.get('/sentiment', function (request, response){
+	request("http://www.sitepoint.com", function(error, response, body) {
+	  console.log(body);
+	});
 });
 
 app.get('/read_mongoose',function (request, response){
