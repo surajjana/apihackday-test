@@ -55,12 +55,15 @@ app.get('/tweets', function (request, response){
 	  access_token_secret: 'y35T8LKMu2JDF6n5eY3VpOZjlMrFkkxWwkum1yGpjtUx8'
 	});
  
-	var params = {count: '2',screen_name: '_surajjana'};
+	var params = {count: '5',screen_name: '_surajjana'};
 	client.get('statuses/user_timeline', params, function(error, tweets, response){
 	  if (!error) {
 	  	tweets_res = tweets;
 	  	//var res = JSON.parse(tweets_res);
-	  	console.log("Message 2 : "+tweets[1].text);
+	  	
+	  	for(var i=0;i<5;i++){
+	  		console.log("Message : "+tweets[i].text+"\n");
+	  	}
 	  	//console.log('%s', res);
 	    //response.send(JSON.stringify(tweets, null, 4));
 	  }
