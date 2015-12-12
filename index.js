@@ -60,7 +60,7 @@ app.get('/tweets', function (request, response){
 	  if (!error) {
 	  	tweets_res = tweets;
 	  	//var res = JSON.parse(tweets_res);
-	  	console.log(tweets);
+	  	console.log(tweets[0].created_at);
 	  	//console.log('%s', res);
 	    //response.send(JSON.stringify(tweets, null, 4));
 	  }
