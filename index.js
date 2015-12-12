@@ -62,9 +62,10 @@ app.get('/tweets/:handle', function (req, res){
 	  	for(var i=0;i<5;i++){
 	  		tweet_msg += tweets[i].text + ' ';
 	  	}
-	  	console.log(tweet_msg);
+	  	//console.log(tweet_msg);
 	  	request("https://apihackday.herokuapp.com/sentiment/"+tweet_msg, function(error, response, body) {
 		  var resp = body;
+		  console.log("Score : "+body);
 		  res.send(200, resp);
 		  
 		});
