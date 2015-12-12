@@ -76,8 +76,9 @@ app.get('/sentiment', function (req, res){
 	  var res = body;
 	  var a = JSON.parse(res);
 	  console.log(a.aggregate.score);
+	  response.send(a.aggregate.score);
 	});
-	res.send(result);
+	//res.send(result);
 });
 
 app.get('/read_mongoose',function (request, response){
