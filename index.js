@@ -95,7 +95,7 @@ app.get('/test', function (req, res){
 	request("http://pollingcube.herokuapp.com/login/sonu/hack123", function(error, response, body) {
 	  var resp = body;
 	  var a = JSON.parse(resp);
-	  console.log("inside the request callback: " + a.aggregate.score);
+	  console.log("Result: " + a.login);
 	  res.send(200, body);
 	});
 });
