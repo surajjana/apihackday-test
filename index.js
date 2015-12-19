@@ -90,7 +90,7 @@ app.get('/sentiment/:msg', function (req, res){
 	});
 });
 
-app.get('/testing', function (req, res){
+app.get('/test', function (req, res){
 
 	var msg = "I love my life!!";
 
