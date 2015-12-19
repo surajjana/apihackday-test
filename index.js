@@ -92,10 +92,10 @@ app.get('/sentiment/:msg', function (req, res){
 
 app.get('/test', function (req, res){
 
-	request("http://pollingcube.herokuapp.com/login/sonu/hack123", function(error, response, body) {
+	request("http://52.88.106.115:8080/s2t?src=http://recordings.kookoo.in/rakshakhegde/info_now.mp3", function(error, response, body) {
 	  var resp = body;
 	  var a = JSON.parse(resp);
-	  console.log("Result: " + a.login.status);
+	  console.log("Result: " + a.results[0].final);
 	  res.send(200, body);
 	});
 });
