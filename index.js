@@ -90,6 +90,18 @@ app.get('/sentiment/:msg', function (req, res){
 	});
 });
 
+app.get('/testing', function (req, res){
+
+	var msg = "I love my life!!";
+
+	request("https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text="+msg+"&apikey=4c517421-8409-4a33-8b20-cf547c587cf3", function(error, response, body) {
+	  var resp = body;
+	  var a = JSON.parse(resp);
+	  console.log("inside the request callback: " + a.aggregate.score);
+	  res.send(200, body);
+	});
+});
+
 app.get('/testing/:name', function (req, res){
 	res.send(req.params.name);
 });
