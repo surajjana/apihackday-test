@@ -92,9 +92,7 @@ app.get('/sentiment/:msg', function (req, res){
 
 app.get('/test', function (req, res){
 
-	var msg = "I love my life!!";
-
-	request("https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text="+msg+"&apikey=4c517421-8409-4a33-8b20-cf547c587cf3", function(error, response, body) {
+	request("http://pollingcube.herokuapp.com/login/sonu/hack123", function(error, response, body) {
 	  var resp = body;
 	  var a = JSON.parse(resp);
 	  console.log("inside the request callback: " + a.aggregate.score);
