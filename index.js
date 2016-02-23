@@ -31,7 +31,7 @@ app.get('/mongoose', function (request, response) {
 	var x = mongoose.model('names',schema);
 
 	var person = new x();
-	person.name = "Suraj";
+	person.name = "Suraj1";
 	person.save(function(err){
 		if(err)
 			console.log('Error Error!!');
