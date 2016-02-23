@@ -119,8 +119,8 @@ app.get('/read_mongoose',function (request, response){
 
 });
 
-app.get('/arunima', function (request, response){
-	response.send("Hello, Arunima... :)");
+app.get('/arunima/:msg', function (request, response){
+	response.send("Hello, Arunima... :) "+request.params.msg);
 });
 
 app.listen(app.get('port'), function() {
