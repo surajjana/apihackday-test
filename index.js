@@ -28,10 +28,10 @@ app.get('/mongoose', function (request, response) {
 		name: String
 	});
 
-	var x = mongoose.model('names',schema);
+	var x1 = mongoose.model('names',schema);
 
-	var person = new x();
-	person.name = "Suraj1";
+	var person = new x1();
+	person.name = "Suraj2";
 	person.save(function(err){
 		if(err)
 			console.log('Error Error!!');
@@ -110,7 +110,7 @@ app.get('/read_mongoose',function (request, response){
 		name: String
 	});
 
-	var x = mongoose.model('x',schema);
+	var x = mongoose.model('x1',schema);
 
 	x.find(function (err, names){
 		if(err) return console.error(err);
